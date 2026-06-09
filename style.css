@@ -1,4 +1,4 @@
-﻿/* =========================================
+/* =========================================
    VARIABLES Y ESTILOS BASE
    ========================================= */
 :root {
@@ -98,23 +98,40 @@ header {
     color: #ffffff !important;
 }
 
-
 /* =========================================
-   CONTENEDOR DE PRODUCTOS (CUADRÍCULA)
+   CONTENEDOR DE PRODUCTOS Y ENCABEZADOS
    ========================================= */
-.seccion-categoria {
-    display: none;
-    padding: 0 15px;
+
+/* Espaciado general de la sección para dar "aire" a los productos */
+.categoria-section {
+    padding: 40px 15px 20px 15px; 
+    /* TRUCO PRO: Evita que el menú flotante tape el título al hacer clic en un enlace */
+    scroll-margin-top: 80px; 
 }
 
-.seccion-categoria.activa {
-    display: block;
-    animation: fadeIn 0.4s ease;
+/* Diseño premium para el texto del título (Estilo Boutique) */
+.titulo-categoria {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #1d1d1f;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 12px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* La línea minimalista debajo del título */
+.titulo-categoria::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1d1d1f;
 }
 
 .productos-grid {
@@ -412,4 +429,3 @@ header {
         margin: 0 auto;
     }
 }
-
