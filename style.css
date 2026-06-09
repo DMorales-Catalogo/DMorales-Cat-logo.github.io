@@ -27,15 +27,13 @@ body {
 }
 
 /* =========================================
-   CABECERA Y NAVEGACIÓN ULTRA-RESISTENTE
+   CABECERA Y NAVEGACIÓN (SELECTOR UNIVERSAL)
    ========================================= */
 header {
     text-align: center;
     padding: 15px 10px;
-    background: rgba(255, 255, 255, 0.9) !important; /* Efecto cristal transparente */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: #ffffff !important; /* Fondo blanco puro para resaltar los botones */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -45,61 +43,58 @@ h1 {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.5px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    color: #1d1d1f;
 }
 
-/* Contenedor forzado a mantenerse en una sola fila deslizable */
+/* Contenedor forzado a flujo horizontal */
 .categorias-nav {
     display: flex !important;
     flex-direction: row !important;
     overflow-x: auto !important;
-    white-space: nowrap !important; /* Evita estrictamente que el texto salte de línea */
-    gap: 10px !important;
+    white-space: nowrap !important;
+    gap: 8px !important;
     padding: 12px 10px !important;
     justify-content: flex-start !important;
-    -webkit-overflow-scrolling: touch; /* Deslizamiento fluido en iOS/Android */
-    scrollbar-width: none; /* Oculta la barra en Firefox */
+    list-style: none !important; /* Elimina puntos si es una lista <ul> */
+    -webkit-overflow-scrolling: touch;
 }
 
 .categorias-nav::-webkit-scrollbar {
-    display: none; /* Oculta la barra en Chrome y Safari */
+    display: none !important; /* Oculta la barra de scroll fea del sistema */
 }
 
-/* SELECTOR SEGURO: Convierte cualquier elemento interno en un botón premium */
-.categorias-nav a,
-.categorias-nav button,
-.categorias-nav span,
-.btn-categoria {
+/* EL COMODÍN (> *): Aplica el diseño de píldora a CUALQUIER elemento interno */
+.categorias-nav > * {
     display: inline-block !important;
     flex: 0 0 auto !important;
-    background: #e8e8ed !important; /* Fondo gris claro estilo cápsula */
-    color: #515154 !important;
+    background: #f2f2f7 !important; /* Gris claro con buen contraste */
+    color: #48484a !important;
     border: none !important;
     padding: 8px 16px !important;
-    border-radius: 20px !important; /* Bordes de píldora redondeada */
+    border-radius: 20px !important; /* Forma de cápsula redondeada */
     font-size: 13px !important;
     font-weight: 600 !important;
-    text-decoration: none !important; /* Quita subrayados */
+    text-decoration: none !important; /* Quita subrayados por defecto */
     white-space: nowrap !important;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease !important;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Diseño para cuando la categoría está seleccionada o activa */
-.categorias-nav .activa,
-.categorias-nav .active,
-.btn-categoria.activa {
-    background: #1d1d1f !important; /* Negro Apple */
+/* Estilo inteligente para la categoría activa (detecta cualquier variante de clase) */
+.categorias-nav > .activa,
+.categorias-nav > .active,
+.categorias-nav > [class*="activa"],
+.categorias-nav > [class*="active"] {
+    background: #1d1d1f !important; /* Negro de alta gama */
     color: #ffffff !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* Efecto al presionar con el dedo */
-.categorias-nav a:active,
-.categorias-nav button:active,
-.btn-categoria:active {
-    transform: scale(0.95);
+/* Efecto táctil al presionar */
+.categorias-nav > *:active {
+    transform: scale(0.95) !important;
+    opacity: 0.8 !important;
 }
 
 /* =========================================
