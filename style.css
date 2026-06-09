@@ -27,75 +27,77 @@ body {
 }
 
 /* =========================================
-   CABECERA Y NAVEGACIÓN (SELECTOR UNIVERSAL)
+   CABECERA Y NAVEGACIÓN CORREGIDA (.menu)
    ========================================= */
 header {
     text-align: center;
     padding: 15px 10px;
-    background: #ffffff !important; /* Fondo blanco puro para resaltar los botones */
+    background: #ffffff !important; /* Fondo blanco limpio */
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-h1 {
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: -0.5px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     color: #1d1d1f;
 }
 
-/* Contenedor forzado a flujo horizontal */
-.categorias-nav {
+/* Contenedor del menú: Activamos el deslizamiento horizontal */
+.menu {
     display: flex !important;
     flex-direction: row !important;
     overflow-x: auto !important;
     white-space: nowrap !important;
     gap: 8px !important;
-    padding: 12px 10px !important;
+    padding: 10px 5px !important;
     justify-content: flex-start !important;
-    list-style: none !important; /* Elimina puntos si es una lista <ul> */
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch; /* Deslizamiento fluido con el dedo */
 }
 
-.categorias-nav::-webkit-scrollbar {
-    display: none !important; /* Oculta la barra de scroll fea del sistema */
+/* Oculta la línea gris por defecto y la barra de scroll horizontal */
+.menu::-webkit-scrollbar {
+    display: none !important;
 }
 
-/* EL COMODÍN (> *): Aplica el diseño de píldora a CUALQUIER elemento interno */
-.categorias-nav > * {
+/* DISEÑO PREMIUM DE PÍLDORA: Para cada uno de tus enlaces */
+.menu a {
     display: inline-block !important;
     flex: 0 0 auto !important;
-    background: #f2f2f7 !important; /* Gris claro con buen contraste */
-    color: #48484a !important;
-    border: none !important;
+    background: #f2f2f7 !important; /* Fondo gris claro estilo iOS */
+    color: #48484a !important; /* Texto gris oscuro de alta legibilidad */
     padding: 8px 16px !important;
-    border-radius: 20px !important; /* Forma de cápsula redondeada */
+    border-radius: 20px !important; /* Bordes perfectamente redondeados */
     font-size: 13px !important;
     font-weight: 600 !important;
-    text-decoration: none !important; /* Quita subrayados por defecto */
+    text-decoration: none !important; /* Elimina por completo las letras subrayadas */
     white-space: nowrap !important;
-    cursor: pointer;
     transition: all 0.2s ease !important;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; /* Quita el destello azul al tocar */
 }
 
-/* Estilo inteligente para la categoría activa (detecta cualquier variante de clase) */
-.categorias-nav > .activa,
-.categorias-nav > .active,
-.categorias-nav > [class*="activa"],
-.categorias-nav > [class*="active"] {
-    background: #1d1d1f !important; /* Negro de alta gama */
-    color: #ffffff !important;
-}
-
-/* Efecto táctil al presionar */
-.categorias-nav > *:active {
+/* Efecto táctil: el botón se encoge sutilmente al presionarlo */
+.menu a:active {
     transform: scale(0.95) !important;
     opacity: 0.8 !important;
 }
+
+/* Por si en el futuro usas JavaScript para marcar el botón activo en negro */
+.menu a.activa,
+.menu a.active {
+    background: #1d1d1f !important;
+    color: #ffffff !important;
+}
+
 
 /* =========================================
    CONTENEDOR DE PRODUCTOS (CUADRÍCULA)
